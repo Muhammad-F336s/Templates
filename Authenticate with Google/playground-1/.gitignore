@@ -1,0 +1,35 @@
+# Dependency directories (Node/React build structures)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Local configuration & Secrets (Your specific files)
+Credentials.txt
+Secrets.json
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE / System files
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

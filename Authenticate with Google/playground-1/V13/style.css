@@ -1,0 +1,271 @@
+/* Custom Stylesheet - Retro CRT Terminal Theme */
+:root {
+  --phosphor-green: #33ff33;
+  --phosphor-dark: #001800;
+  --phosphor-bright: #8cff8c;
+  --bg-black: #020202;
+  --font-mono: 'VT323', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-mono);
+  background: var(--bg-black);
+  color: var(--phosphor-green);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 0 0 4px rgba(51, 255, 51, 0.5);
+  font-size: 20px;
+}
+
+/* CRT Screen Effects */
+.crt-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(18, 50, 18, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%);
+  z-index: 1000; pointer-events: none;
+}
+
+.crt-scanline {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.28) 50%
+  );
+  background-size: 100% 5px;
+  z-index: 1001; pointer-events: none;
+}
+
+.crt-flicker {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(51, 255, 51, 0.015);
+  z-index: 999; pointer-events: none;
+  animation: crt-flicker-anim 0.15s infinite;
+}
+
+@keyframes crt-flicker-anim {
+  0% { opacity: 0.97; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* Main Container */
+.container {
+  background: var(--bg-black);
+  border: 3px solid var(--phosphor-green);
+  border-radius: 0;
+  box-shadow: 
+    0 0 30px rgba(51, 255, 51, 0.35),
+    inset 0 0 15px rgba(51, 255, 51, 0.15);
+  width: 900px;
+  max-width: 95%;
+  height: 560px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+}
+
+/* Form Containers */
+.form-container {
+  position: absolute; top: 0; height: 100%;
+  transition: all 0.6s steps(24); /* Retro stepped animation transition */
+  background: var(--bg-black);
+}
+
+.sign-in-container { left: 0; width: 50%; z-index: 2; }
+.sign-up-container { left: 0; width: 50%; opacity: 0; z-index: 1; }
+
+form {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 0 44px; height: 100%; text-align: left;
+}
+
+.title {
+  font-size: 32px; font-weight: 700;
+  color: var(--phosphor-green);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--phosphor-bright);
+  margin-bottom: 24px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Retro Inputs */
+.input-field { width: 100%; position: relative; margin-bottom: 14px; }
+
+.input-field input {
+  width: 100%;
+  background: var(--bg-black);
+  border: 2px solid var(--phosphor-green);
+  border-radius: 0;
+  padding: 12px 16px;
+  font-size: 18px;
+  color: var(--phosphor-bright);
+  outline: none;
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 6px rgba(51, 255, 51, 0.2);
+}
+
+.input-field input::placeholder { color: rgba(51, 255, 51, 0.35); }
+
+.input-field input:focus {
+  background: var(--phosphor-dark);
+  box-shadow: 
+    0 0 10px rgba(51, 255, 51, 0.5),
+    inset 0 0 6px rgba(51, 255, 51, 0.1);
+  color: var(--phosphor-green);
+}
+
+/* Password Toggle */
+.password-toggle {
+  position: absolute; right: 16px; top: 50%;
+  transform: translateY(-50%);
+  background: transparent; border: none;
+  cursor: pointer; color: var(--phosphor-green);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  outline: none;
+}
+
+.password-toggle:hover { color: #fff; }
+
+.forgot-password {
+  color: var(--phosphor-green); font-size: 16px;
+  text-decoration: none; margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+.forgot-password:hover { text-decoration: underline; color: #fff; }
+
+/* Retro Terminal Buttons */
+.btn {
+  border: 2px solid var(--phosphor-green);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-mono); font-size: 18px;
+  font-weight: 700; padding: 12px 30px;
+  cursor: pointer; transition: all 0.2s ease;
+  color: var(--phosphor-green);
+  text-transform: uppercase;
+}
+
+.btn-main {
+  width: 100%; margin-top: 8px;
+  background: rgba(51, 255, 51, 0.05);
+}
+
+.btn-main:hover {
+  background: var(--phosphor-green);
+  color: var(--bg-black);
+  box-shadow: 0 0 15px rgba(51, 255, 51, 0.6);
+  text-shadow: none;
+}
+
+.btn-ghost {
+  margin-top: 24px;
+}
+
+.btn-ghost:hover {
+  background: rgba(51, 255, 51, 0.15);
+  box-shadow: 0 0 15px rgba(51, 255, 51, 0.4);
+}
+
+.mobile-helper-text { display: none; }
+
+/* Overlay Sliders */
+.overlay-container {
+  position: absolute; top: 0; left: 50%;
+  width: 50%; height: 100%; overflow: hidden;
+  transition: transform 0.6s steps(24);
+  z-index: 100;
+  border-left: 3px solid var(--phosphor-green);
+}
+
+.overlay {
+  background: var(--bg-black);
+  color: var(--phosphor-green); position: relative; left: -100%;
+  height: 100%; width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s steps(24);
+}
+
+.overlay-panel {
+  position: absolute; display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 0 40px; text-align: center;
+  top: 0; height: 100%; width: 50%;
+  transition: transform 0.6s steps(24);
+}
+
+.overlay-left { transform: translateX(-20%); }
+.overlay-right { right: 0; transform: translateX(0); }
+
+.overlay-title {
+  font-size: 28px; font-weight: 700;
+  color: var(--phosphor-green);
+  margin-bottom: 12px;
+}
+
+.overlay-desc { 
+  font-size: 16px; opacity: 0.85; 
+  line-height: 150%; max-width: 280px; 
+}
+
+/* Active State Transitions */
+.container.right-panel-active .sign-in-container { transform: translateX(100%); opacity: 0; z-index: 1; }
+.container.right-panel-active .sign-up-container { transform: translateX(100%); opacity: 1; z-index: 5; }
+.container.right-panel-active .overlay-container { transform: translateX(-100%); border-left: none; border-right: 3px solid var(--phosphor-green); }
+.container.right-panel-active .overlay { transform: translateX(50%); }
+.container.right-panel-active .overlay-left { transform: translateX(0); }
+.container.right-panel-active .overlay-right { transform: translateX(20%); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  body { overflow-y: auto; padding: 30px 0; }
+  .container { width: 100%; max-width: 440px; height: auto; min-height: 560px; display: block; border-width: 2px; }
+  .form-container { position: relative; width: 100%; height: auto; display: none; opacity: 0; transition: none; }
+  .container:not(.right-panel-active) .sign-in-container { display: block; opacity: 1; }
+  .container.right-panel-active .sign-up-container { display: block; opacity: 1; transform: none; }
+  .overlay-container { display: none; }
+  form { padding: 44px 28px; }
+  .mobile-helper-text { display: block; margin-top: 22px; font-size: 16px; color: var(--phosphor-green); }
+  .mobile-switch-btn { background: transparent; border: none; color: #fff; font-weight: 700; font-family: var(--font-mono); cursor: pointer; font-size: 16px; text-decoration: underline; }
+}
+
+/* Social Buttons */
+.social-container { display: flex; gap: 14px; margin-bottom: 20px; }
+.social-btn {
+  background: transparent;
+  border: 2px solid var(--phosphor-green);
+  width: 52px; height: 52px;
+  display: inline-flex; justify-content: center; align-items: center;
+  cursor: pointer; transition: all 0.2s ease;
+  color: var(--phosphor-green);
+}
+.social-btn:hover {
+  background: var(--phosphor-green);
+  color: var(--bg-black);
+  box-shadow: 0 0 10px var(--phosphor-green);
+}
+.social-icon { width: 22px; height: 22px; }
+.social-divider {
+  font-size: 15px; color: var(--phosphor-green);
+  display: flex; align-items: center; width: 100%; margin-bottom: 16px;
+}
+.social-divider::before, .social-divider::after { content:''; flex:1; border-bottom:2px dashed var(--phosphor-green); }
+.social-divider::before { margin-right: 12px; }
+.social-divider::after { margin-left: 12px; }

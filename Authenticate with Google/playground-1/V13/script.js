@@ -1,0 +1,45 @@
+// Toggle sliding panel actions (Desktop)
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+  container.classList.add('right-panel-active');
+});
+
+signInButton.addEventListener('click', () => {
+  container.classList.remove('right-panel-active');
+});
+
+const mobileToSignup = document.getElementById('mobile-to-signup');
+const mobileToSignin = document.getElementById('mobile-to-signin');
+
+if (mobileToSignup) mobileToSignup.addEventListener('click', () => container.classList.add('right-panel-active'));
+if (mobileToSignin) mobileToSignin.addEventListener('click', () => container.classList.remove('right-panel-active'));
+
+document.querySelectorAll('.password-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const input = button.parentElement.querySelector('.password-input');
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    button.textContent = isHidden ? '_ENCRYPT' : '_DECRYPT';
+  });
+});
+
+document.getElementById('signin-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('CRT Terminal - Initiating Access Clearance...');
+  alert('ESTABLISH_LINK captured. Decrypting operator credentials...');
+});
+
+document.getElementById('signup-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('CRT Terminal - Initializing Operator Record...');
+  alert('INITIALIZE captured. Saving clearance signature inside kernel memory...');
+});
+
+// Retro Command Console Logger Effect
+console.log('TERMINAL INITIALIZED.');
+console.log('Clearance Level: Operator (L3)');
+console.log('Device Node: Terminal-09');
+console.log('Status: Standby...');

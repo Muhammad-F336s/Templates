@@ -1,0 +1,461 @@
+/* Custom Stylesheet - Pistachio & Pale Green Organic Access Portal */
+
+:root {
+  /* Color Palette */
+  --bg-organic: linear-gradient(135deg, #f4f9f6 0%, #e3eee7 100%);
+  --card-white: #ffffff;
+  --text-dark-sage: #2a3c2e;
+  --text-medium-sage: #607565;
+  --text-light-sage: #9bb5a1;
+  --pista: #7ba289;
+  --pista-dark: #587e64;
+  --pista-light: #e6f0ea;
+  --border-light: #e1ede5;
+  --border-focus: #7ba289;
+  
+  /* Fonts */
+  --font-rounded: 'Quicksand', system-ui, sans-serif;
+  
+  /* Dimensions */
+  --container-width: 900px;
+  --container-height: 580px;
+}
+
+/* Reset and Core Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-rounded);
+  background: var(--bg-organic);
+  color: var(--text-dark-sage);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating Botanical Leaves */
+.leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leaf-1 {
+  width: 140px;
+  height: 140px;
+  top: -40px;
+  left: 10%;
+  animation: float-leaf-1 12s infinite alternate ease-in-out;
+}
+
+.leaf-2 {
+  width: 100px;
+  height: 100px;
+  bottom: 20px;
+  right: 12%;
+  animation: float-leaf-2 15s infinite alternate ease-in-out;
+  transform: rotate(45deg);
+}
+
+.leaf-3 {
+  width: 80px;
+  height: 80px;
+  top: 45%;
+  right: 25%;
+  animation: float-leaf-3 10s infinite alternate ease-in-out;
+  transform: rotate(-30deg);
+}
+
+@keyframes float-leaf-1 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(15px) rotate(10deg); }
+}
+
+@keyframes float-leaf-2 {
+  0% { transform: translateY(0) rotate(45deg); }
+  100% { transform: translateY(-20px) rotate(55deg); }
+}
+
+@keyframes float-leaf-3 {
+  0% { transform: translate(0, 0) rotate(-30deg); }
+  100% { transform: translate(-10px, 10px) rotate(-20deg); }
+}
+
+/* Main Container (Pistachio Clean Card) */
+.container {
+  background: var(--card-white);
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  box-shadow: 
+    0 20px 40px rgba(42, 60, 46, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.02);
+  width: var(--container-width);
+  max-width: 95%;
+  height: var(--container-height);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+}
+
+/* Forms layout */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Forms internal styling */
+form {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-dark-sage);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-medium-sage);
+  margin-bottom: 30px;
+  line-height: 145%;
+}
+
+/* Input Fields (Organic rounded box) */
+.input-field {
+  width: 100%;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-field input {
+  width: 100%;
+  background: var(--pista-light);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-dark-sage);
+  outline: none;
+  font-family: var(--font-rounded);
+  transition: all 0.25s ease;
+}
+
+.input-field input::placeholder {
+  color: #8da493;
+}
+
+.input-field input:focus {
+  background: var(--card-white);
+  border-color: var(--border-focus);
+  box-shadow: 0 5px 15px rgba(123, 162, 137, 0.12);
+}
+
+/* Password Toggle Eye styling */
+.password-toggle {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.eye-icon path,
+.eye-icon circle {
+  stroke: #8da493;
+  transition: stroke 0.2s ease;
+}
+
+.password-toggle:hover .eye-icon path,
+.password-toggle:hover .eye-icon circle {
+  stroke: var(--text-dark-sage);
+}
+
+.forgot-password {
+  color: var(--text-medium-sage);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 4px;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+  color: var(--text-dark-sage);
+  text-decoration: underline;
+}
+
+/* Buttons styling */
+.btn {
+  border-radius: 16px;
+  border: none;
+  font-size: 14.5px;
+  font-family: var(--font-rounded);
+  font-weight: 700;
+  padding: 16px 36px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.btn-main {
+  background: var(--pista);
+  color: #ffffff;
+  width: 100%;
+  margin-top: 8px;
+  box-shadow: 0 8px 16px rgba(123, 162, 137, 0.2);
+}
+
+.btn-main:hover {
+  background: var(--pista-dark);
+  box-shadow: 0 10px 22px rgba(123, 162, 137, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-main:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  margin-top: 24px;
+}
+
+.btn-ghost:hover {
+  background: #ffffff;
+  color: var(--pista-dark);
+}
+
+.mobile-helper-text {
+  display: none;
+}
+
+/* Sliding Overlay Panel Container */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 100;
+}
+
+.overlay {
+  background: linear-gradient(135deg, var(--pista) 0%, var(--pista-dark) 100%);
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.overlay-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.overlay-desc {
+  font-size: 14.5px;
+  line-height: 150%;
+  opacity: 0.9;
+  max-width: 320px;
+}
+
+/* Sliding Animation States triggered by JS */
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Responsive Adaptation (Mobile & Tablets) */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    padding: 30px 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    min-height: 560px;
+    display: block;
+    border-radius: 24px;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: none;
+    opacity: 0;
+    transition: none;
+  }
+
+  /* Show only active container in mobile mode */
+  .container:not(.right-panel-active) .sign-in-container {
+    display: block;
+    opacity: 1;
+  }
+
+  .container.right-panel-active .sign-up-container {
+    display: block;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hide overlays on mobile */
+  .overlay-container {
+    display: none;
+  }
+
+  form {
+    padding: 45px 30px;
+  }
+
+  .mobile-helper-text {
+    display: block;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-medium-sage);
+  }
+
+  .mobile-switch-btn {
+    background: transparent;
+    border: none;
+    color: var(--pista-dark);
+    font-weight: 700;
+    font-family: var(--font-rounded);
+    cursor: pointer;
+    padding: 2px 6px;
+    font-size: 14px;
+  }
+
+  .mobile-switch-btn:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Social Auth Buttons */
+.social-container { display: flex; gap: 14px; margin-bottom: 16px; }
+.social-btn {
+  background: var(--pista-light);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  width: 52px; height: 52px;
+  display: inline-flex; justify-content: center; align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.social-btn:hover { background: #d8ead0; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(123,162,137,0.15); }
+.social-icon { width: 22px; height: 22px; }
+.social-divider {
+  font-size: 12px; color: var(--text-light-sage);
+  display: flex; align-items: center; width: 100%; margin-bottom: 16px;
+  font-weight: 600;
+}
+.social-divider::before, .social-divider::after { content:''; flex:1; border-bottom:1px solid var(--border-light); }
+.social-divider::before { margin-right: 12px; }
+.social-divider::after { margin-left: 12px; }
+
