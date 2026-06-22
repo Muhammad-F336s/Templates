@@ -1,0 +1,15 @@
+:root{
+  --bg-gradient: radial-gradient( circle at 10% 20%, #4b1f6b 0%, rgba(75,31,107,0.85) 10%, rgba(9,6,20,0.9) 55% ), radial-gradient( circle at 90% 85%, #2b1b4b 0%, rgba(43,27,75,0.85) 10%, rgba(7,6,12,0.9) 60% );
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  --accent: #8a3ff0;
+  --muted: #a7a3b3;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{display:flex;align-items:center;justify-content:center;background:var(--bg-gradient);color:#eee}
+.profile-card{background:var(--card-bg);width:420px;max-width:94vw;padding:44px 28px;border-radius:20px;box-shadow:0 20px 60px rgba(3,2,10,0.6);text-align:center;border:1px solid rgba(255,255,255,0.03)}
+.avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 18px;display:block;border:6px solid rgba(255,255,255,0.06);box-shadow:0 12px 40px rgba(0,0,0,0.6);background:linear-gradient(135deg,#2b153f,#4b1f6b)}
+.name{font-size:1.6rem;margin:10px 0 6px;color:#fff;font-weight:700;letter-spacing:0.2px}
+.email{font-size:0.98rem;color:var(--muted);margin:0}
+.btn-logout{margin-top:18px;background:transparent;color:var(--accent);border:1px solid rgba(138,63,240,0.18);padding:10px 14px;border-radius:10px;cursor:pointer}
+@media (max-width:480px){.profile-card{padding:28px 18px}.avatar{width:140px;height:140px}}

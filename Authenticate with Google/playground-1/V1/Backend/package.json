@@ -1,0 +1,21 @@
+{
+  "name": "v1",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "types": "module"
+  },
+  "dependencies": {
+    "axios": "^1.18.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.1"
+  },
+  "devDependencies": {}
+}
